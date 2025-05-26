@@ -1,11 +1,14 @@
 package com.example.test1clock
 
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.Gravity
 import android.view.animation.AnimationUtils
+import android.widget.Button
 import android.widget.FrameLayout
+import android.widget.ImageButton
 import android.widget.TextSwitcher
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -22,10 +25,11 @@ class MainActivity : AppCompatActivity() {
 
     private var lastTime: String = ""
     private val handler = Handler(Looper.getMainLooper())
-    private val timeFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).apply {
+    //使用北京时区
+    /*private val timeFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).apply {
         timeZone = TimeZone.getTimeZone("Asia/Shanghai")
-    }
-
+    }*/
+    val timeFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,8 +73,20 @@ class MainActivity : AppCompatActivity() {
         lastTime = ""
         val currentTime = timeFormat.format(Date())
         updateClock(currentTime, forceUpdate = true)
-
         handler.post(updateTimeTask)
+
+        val btnAlarm = findViewById<ImageButton>(R.id.btnAlarm)
+        val btnClock = findViewById<ImageButton>(R.id.btnClock)
+
+        btnAlarm.setOnClickListener {
+            val intent = Intent(this, AlarmActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnClock.setOnClickListener {
+            val intent = Intent(this, ClockActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private val updateTimeTask = object : Runnable {
