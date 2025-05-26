@@ -11,8 +11,9 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val handler = Handler(Looper.getMainLooper())
-    private val timeFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault())
-
+    private val timeFormat = SimpleDateFormat("HH:mm:ss", Locale.getDefault()).apply {
+        timeZone = TimeZone.getTimeZone("Asia/Shanghai")
+    }
     private val updateTimeTask = object : Runnable {
         override fun run() {
             val currentTime = timeFormat.format(Date())
