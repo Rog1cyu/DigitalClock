@@ -26,9 +26,18 @@ class MainActivity : AppCompatActivity() {
         timeZone = TimeZone.getTimeZone("Asia/Shanghai")
     }
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val dateText = findViewById<TextView>(R.id.dateText)
+        val dateFormat = SimpleDateFormat("yyyy/MM/dd", Locale.getDefault())
+        val currentDate = dateFormat.format(Date())
+        dateText.text = currentDate
+        dateText.typeface = resources.getFont(R.font.digital7)
+        dateText.setTextColor(resources.getColor(android.R.color.holo_green_light))
 
         fun initSwitcher(ts: TextSwitcher) {
             ts.setFactory {

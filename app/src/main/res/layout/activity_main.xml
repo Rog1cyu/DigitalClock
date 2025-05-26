@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,54 +6,74 @@
     android:background="#333333">
 
     <LinearLayout
-        android:id="@+id/clockContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:gravity="center"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <!-- 小时 -->
-        <TextSwitcher
-            android:id="@+id/hourTens"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextSwitcher
-            android:id="@+id/hourUnits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        <!-- 日期显示 -->
         <TextView
-            android:text=":"
+            android:id="@+id/dateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="48sp"
-            android:textColor="#FFFFFF" />
-        <!-- 分钟 -->
-        <TextSwitcher
-            android:id="@+id/minTens"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextSwitcher
-            android:id="@+id/minUnits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:text=":"
+            android:text="YYYY/MM/DD"
+            android:textSize="32sp"
+            android:textColor="@android:color/holo_green_light"
+            android:layout_marginBottom="8dp" />
+
+        <!-- 时间显示 -->
+        <LinearLayout
+            android:id="@+id/clockContainer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="48sp"
-            android:textColor="#FFFFFF" />
-        <!-- 秒 -->
-        <TextSwitcher
-            android:id="@+id/secTens"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-        <TextSwitcher
-            android:id="@+id/secUnits"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <!-- 小时 -->
+            <TextSwitcher
+                android:id="@+id/hourTens"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextSwitcher
+                android:id="@+id/hourUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text=":"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="72sp"
+                android:textColor="@android:color/holo_green_light" />
+            <!-- 分钟 -->
+            <TextSwitcher
+                android:id="@+id/minTens"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextSwitcher
+                android:id="@+id/minUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:text=":"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="72sp"
+                android:textColor="@android:color/holo_green_light" />
+            <!-- 秒 -->
+            <TextSwitcher
+                android:id="@+id/secTens"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextSwitcher
+                android:id="@+id/secUnits"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
