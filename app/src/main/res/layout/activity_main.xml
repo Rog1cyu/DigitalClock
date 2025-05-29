@@ -99,6 +99,35 @@
                 app:tint="@android:color/holo_green_light" />
         </LinearLayout>
 
+        <!-- 天气显示 -->
+        <LinearLayout
+            android:id="@+id/weatherLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp">
+
+            <ImageView
+                android:id="@+id/weatherIcon"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@android:drawable/ic_menu_compass"
+                app:tint="@android:color/holo_green_light"
+                android:contentDescription="天气图标" />
+
+            <TextView
+                android:id="@+id/weatherText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="晴 25°C"
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_green_light"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
